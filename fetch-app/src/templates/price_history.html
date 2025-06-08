@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - {{ product }} Price History{% endblock %}
+{% block content %}
+  <h1>{{ product }} Price History</h1>
+  <p>Track price trends for {{ product }} with Fetch.</p>
+  <form action="/search" method="POST">
+    <input type="hidden" name="query" value="{{ product }}">
+    <input type="hidden" name="search" value="search">
+    <button type="submit">Compare Current Prices</button>
+  </form>
+{% endblock %}

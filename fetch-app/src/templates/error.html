@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - Error{% endblock %}
+{% block content %}
+  <h1>Oops! Something Went Wrong</h1>
+  <p>{{ message }}</p>
+  <form action="/search" method="POST">
+    <input type="text" name="query" value="{{ query }}" placeholder="Try another product, e.g., iPhone 15">
+    <button type="submit">Search Again</button>
+  </form>
+{% endblock %}

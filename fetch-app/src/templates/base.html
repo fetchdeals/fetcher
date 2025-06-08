@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fetch: Find the Cheapest Price for Your Product! Compare prices across Currys, Apple, O2, Amazon, and more in the UK.">
+  <meta name="keywords" content="cheapest products, price comparison, iPhone 15 deals, Currys deals, Amazon UK, O2 contracts, find cheapest">
+  <meta name="robots" content="index, follow">
+  <title>{% block title %}Fetch - Cheapest Prices{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><a href="/"><img src="/static/logo.png" alt="Fetch Logo"></a></div>
+        <ul>
+          <li><a href="/cheapest-finder">Cheapest Finder</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/feedback">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <div class="container">
+      <p>© 2025 Fetch. Affiliate links used. <a href="/about">About</a> | <a href="/faq">FAQ</a> | <a href="/feedback">Feedback</a></p>
+      <div class="trustpilot">Trustpilot: 4.8/5</div>
+    </div>
+  </footer>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

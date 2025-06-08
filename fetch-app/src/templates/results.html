@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - {{ query }} Deals{% endblock %}
+{% block content %}
+  <h1>Cheapest {{ query }} Deals</h1>
+  <p>Found {{ results|length }} deals for {{ query }} in {{ country }}</p>
+  <div>
+    <span class="sort-btn" id="sort-price">Sort by Price</span> |
+    <span class="sort-btn" id="sort-total">Sort by Total</span> |
+    <span class="sort-btn text-blue-600 font-bold" id="sort-fvs">Sort by FVS</span> |
+    <span class="sort-btn" id="simplify">Top 5</span>
+  </div>
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th data-label="Retailer">Retailer</th>
+        <th data-label="Price">Price</th>
+        <th data-label="Shop">Shop</th>
+        <th data-label="Delivery">Delivery</th>
+        <th data-label="Total">Total</th>
+        <th data-label="FVS">FVS</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+      <tr class="result-row" data-price="{{ result.price }}" data-total="{{ result.total }}" data-fvs="{{ result.fvs }}">
+        <td data-label="Retailer">{{ result.retailer }}{% if result.pressure %} <span class="pressure">{{ result.pressure }}</span>{% endif %}</td>
+        <td data-label="Price">£{{ result.price|round(2) }}{% if result.pulse %} <span class="pulse">{{ result.pulse }}</span>{% endif %}</td>
+        <td data-label="Shop">
+          <a href="{{ result.url }}" class="shop-btn" data-retailer="{{ result.retailer }}" data-url="{{ result.url }}" data-category="{{ result.category }}" data-price="{{ result.price }}" data-sub-id="{{ result.sub_id }}">Shop Now</a>
+          <a href="/set-alert?product={{ query }}&retailer={{ result.retailer }}&current_price={{ result.price }}" class="alert-btn">Alert Me</a>
+        </td>
+        <td data-label="Delivery">{{ 'Free' if result.delivery_fee == 0 else '£' + (result.delivery_fee|round(2)|string) }}</td>
+        <td data-label="Total">£{{ result.total|round(2) }}</td>
+        <td data-label="FVS">{{ result.fvs }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if page < total_pages %}
+  <form id="search-form" action="/search" method="POST" class="pagination">
+    <input type="hidden" name="query" value="{{ query }}">
+    <input type="hidden" name="country" value="{{ country }}">
+    <input type="hidden" id="page" name="page" value="{{ page + 1 }}">
+    <button type="submit" id="load-more">Load More</button>
+  </form>
+  {% endif %}
+{% endblock %}

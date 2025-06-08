@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - Cheapest Finder{% endblock %}
+{% block content %}
+  <h1>Fetch: Find the Cheapest Price for Your Product!</h1>
+  <p>Discover the cheapest products in the UK, from iPhone 15 to groceries, with Fetch!</p>
+  <form action="/search" method="POST">
+    <input type="text" name="query" placeholder="e.g., iPhone 15" required>
+    <button type="submit">Find Cheapest</button>
+  </form>
+{% endblock %}

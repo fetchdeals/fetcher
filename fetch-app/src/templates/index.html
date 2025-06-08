@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - Find the Cheapest Prices{% endblock %}
+{% block content %}
+  <h1>Fetch: Find the Cheapest Price for Your Product!</h1>
+  <p>Compare prices across Currys, Apple, O2, Amazon, and more in the UK!</p>
+  <form id="search-form" action="/search" method="POST" class="search-form">
+    <input type="text" name="query" placeholder="e.g., iPhone 15" required>
+    <input type="hidden" id="country" name="country" value="UK">
+    <select id="country-lang">
+      <option value="UK-en">UK (English)</option>
+    </select>
+    <button type="submit">Find Cheapest</button>
+  </form>
+  <section>
+    <h2>Why Fetch?</h2>
+    <p>Save money with trusted retailers like Currys, Apple, and O2. From iPhones to groceries, Fetch finds the cheapest deals instantly!</p>
+  </section>
+{% endblock %}

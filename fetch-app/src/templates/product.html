@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - {{ product }} Deals{% endblock %}
+{% block content %}
+  <h1>{{ product }} Deals</h1>
+  <p>Find the cheapest {{ product }} in the UK with Fetch!</p>
+  <form action="/search" method="POST">
+    <input type="hidden" name="query" value="{{ product }}">
+    <input type="hidden" name="search" value="search">
+    <button type="submit">Compare Prices</button>
+  </form>
+{% endblock %}

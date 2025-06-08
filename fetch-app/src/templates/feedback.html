@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - Feedback{% endblock %}
+{% block content %}
+  <h1>Feedback</h1>
+  {% if message %}
+  <p>{{ message }}</p>
+  {% endif %}
+  <form action="/feedback" method="POST">
+    <label>Feedback:</label>
+    <textarea name="feedback" required></textarea>
+    <label>Rating (1-5):</label>
+    <input type="number" name="rating" min="1" max="5" required>
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - Set Price Alert{% endblock %}
+{% block content %}
+  <h1>Set Price Alert</h1>
+  {% if message %}
+  <p>{{ message }}</p>
+  {% endif %}
+  <form action="/set-alert" method="POST">
+    <label>Product:</label>
+    <input type="text" name="product" value="{{ product }}" required>
+    <label>Retailer:</label>
+    <input type="text" name="retailer" value="{{ retailer }}" required>
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <label>Current Price:</label>
+    <input type="text" name="current_price" value="{{ current_price }}" readonly>
+    <label>Desired Price:</label>
+    <input type="number" name="desired_price" step="0.01" required>
+    <button type="submit">Set Alert</button>
+  </form>
+{% endblock %}

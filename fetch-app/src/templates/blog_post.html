@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - {{ slug|title }} Blog{% endblock %}
+{% block content %}
+  <h1>{{ slug|title }}</h1>
+  <p>Read our guide on saving with Fetch for {{ slug }}.</p>
+  <p>Content goes here...</p>
+  <a href="/search">Search for Deals</a>
+{% endblock %}

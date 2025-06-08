@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Fetch - {{ category|title }} {{ subcategory|title }} Deals{% endblock %}
+{% block content %}
+  <h1>{{ category|title }} {{ subcategory|title }} Deals</h1>
+  <p>Find the cheapest {{ subcategory }} in {{ category }} with Fetch!</p>
+  <form action="/search" method="POST">
+    <input type="text" name="query" placeholder="Search within {{ subcategory }}" required>
+    <button type="submit">Search</button>
+  </form>
+{% endblock %}
